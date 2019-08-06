@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/MarcelCode/django-raster
+	branch = master
+	commit = d1b425f454ef1bb7171b13f0151b5a909aa9d377
+	parent = e44d7b6a114400db9040e50895c2ae1b752b9b4b
+	method = merge
+	cmdver = 0.4.0
