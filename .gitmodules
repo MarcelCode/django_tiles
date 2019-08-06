@@ -1,3 +1,0 @@
-[submodule "django-raster"]
-	path = django-raster
-	url = https://github.com/MarcelCode/django-raster
