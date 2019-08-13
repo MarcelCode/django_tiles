@@ -1,0 +1,35 @@
+- Download project
+- Set python intepreter in django settings
+- pip install -r requirements.txt
+
+- install a postgres db with postgis installed
+    - go to django_tiles/settings.py:line 82
+    - change connection parameter for db
+
+- in console go to root folder (pycharm already in root folder normally)
+    - python manage.py migrate
+    - python manage.py createsuperuser
+
+- start server
+    - go to http://127.0.0.1:8000/admin/
+    - log in with your created credentials
+
+- Under "Main" you can add "Felder" -> Fields or "Schlaege" -> Strokes
+    - If you want to upload a shapefile -> https://docs.djangoproject.com/en/2.2/ref/contrib/gis/layermapping/
+
+    >>> from django.contrib.gis.utils import LayerMapping
+    >>> from geoapp.models import TestGeo #Change your model here
+    >>> mapping = {'internal_id' : 'id',
+                   'geom' : 'POLYGON',
+                   } # The mapping is a dictionary
+    >>> lm = LayerMapping(TestGeo, 'test_poly.shp', mapping)
+    >>> lm.save(verbose=True) # Save the layermap, imports the data.
+
+- Under Raster -> Raster layers you can add rasters
+    - https://django-raster.readthedocs.io/en/latest/
+    - !! IMPORTANT !!
+        - The raster layer links are connected to the id of the individual raster layer
+        - Go to templates -> neu.html: Line 44
+            "/raster/tiles/10/{z}/{x}/{y}.png" -> Change 10 to the id of the layer you want to see
+
+- Questions? Ask me :-)

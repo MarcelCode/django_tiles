@@ -37,11 +37,11 @@
 <script>
     let map = L.map('mapid', {maxZoom: 18}).setView([52.77, 12.95], 10);
 
-    let rgb_image = L.tileLayer('/raster/algebra/{z}/{x}/{y}.png?layers=r:2=7,g:1=7,b:0=7&scale=0,1000&nodata');
-    map.addLayer(rgb_image);
-    rgb_image.bringToFront();
+    {#let rgb_image = L.tileLayer('/raster/algebra/{z}/{x}/{y}.png?layers=r:2=7,g:1=7,b:0=7&scale=0,1000&nodata');#}
+    {#map.addLayer(rgb_image);#}
+    {#rgb_image.bringToFront();#}
 
-    let fertilizer = L.tileLayer("/raster/tiles/8/{z}/{x}/{y}.png");
+    let fertilizer = L.tileLayer("/raster/tiles/10/{z}/{x}/{y}.png");
     map.addLayer(fertilizer);
     fertilizer.bringToFront();
 
@@ -72,7 +72,7 @@
     });
 
     let overlaymaps = {
-        "Sentinel 2": rgb_image,
+        {#"Sentinel 2": rgb_image,#}
         "Field": fields,
         "Schlag": strokes,
         "Duengung": fertilizer
